@@ -49,6 +49,8 @@ from bootstrap_modal_forms.generic import (
     BSModalDeleteView
 )
 
+# def dash(request):
+#     return render(request, 'dashboard/')
 
 def signup(request):
     return render(request, 'dashboard/login.html')

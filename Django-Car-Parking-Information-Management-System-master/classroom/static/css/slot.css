@@ -1,0 +1,82 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family:'Josefin Sans',sans-serif;
+}
+
+
+.durbarmarg .top-slots{
+    display: flex;
+    justify-content: space-evenly;
+}
+.durbarmarg .top-slots :nth-child(1){
+    padding: 14px 12px;
+    background-color: lightgreen;
+    margin-bottom: 50%;
+}
+
+.durbarmarg .top-slots :nth-child(2){
+    padding: 14px 12px;
+    background-color: lightgreen;
+    margin-bottom: 50%;
+}
+
+
+.durbarmarg .bottom-slots{
+    display: flex;
+    justify-content: space-evenly;   
+}
+
+.durbarmarg .bottom-slots :nth-child(1){
+    padding: 14px 12px;
+    background-color: lightgreen;
+    margin-bottom: 50%;
+}
+
+.durbarmarg .bottom-slots :nth-child(2){
+    padding: 14px 12px;
+    background-color: lightgreen;
+    margin-bottom: 50%;
+}
+
+.thamel{
+    margin-bottom: 20%;
+    margin-top: 60%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.thamel .top-slots{
+    display: flex;
+    justify-content: space-evenly;
+}
+.thamel .top-slots :nth-child(1){
+    padding: 14px 12px;
+    background-color: lightgreen;
+    margin-bottom: 50%;
+}
+
+.durbarmarg .top-slots :nth-child(2){
+    padding: 14px 12px;
+    background-color: lightgreen;
+    margin-bottom: 50%;
+}
+
+
+.durbarmarg .bottom-slots{
+    display: flex;
+    justify-content: space-evenly;   
+}
+
+.durbarmarg .bottom-slots :nth-child(1){
+    padding: 14px 12px;
+    background-color: lightgreen;
+    margin-bottom: 50%;
+}
+
+.durbarmarg .bottom-slots :nth-child(2){
+    padding: 14px 12px;
+    background-color: lightgreen;
+    margin-bottom: 50%;
+}

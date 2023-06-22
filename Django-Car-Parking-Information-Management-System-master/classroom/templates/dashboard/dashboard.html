@@ -1,5 +1,6 @@
 {% extends 'dashboard/base.html' %}
 {% load static %}
+<link rel="stylesheet" type="css" href="static/css/slot.css">
 
 {% block body %}
  <div id="content-wrapper">
@@ -66,12 +67,75 @@
                             <span class="float-left">More Info</span>
                             <span class="float-right">
                   <i class="fas fa-angle-right"></i>
-                </span>
+                        </span>
                         </a>
-                    </div>
                 </div>
+                    
+                </div>
+                
             </div>
         </div>
-        </div>  
+        <div class="parking-slot">
+            <div class="durbarmarg">
+                <span>Durbarmarg</span>
+                <div class="top-slots">
+                <a href="{% url 'add_vehicle' %}">
+                    <div>
+                    
+                    </div>
+                </a>
+                <a href="{% url 'add_vehicle' %}">    
+                    <div>
+                        
+                    </div>
+                </a>    
+                </div>
+                <div class="bottom-slots">
+                 
+                <a href="{% url 'add_vehicle' %}">    
+                <div>
+                    
+                </div>
+                </a>
+                <a href="{% url 'add_vehicle' %}">
+                <div>
+                    
+                </div>
+                </a>
+                </div>
+            </div>
+    
+            <div class="thamel">
+                <span>Thamel</span>
+                <div class="top-slots">
+                    <a href="{% url 'add_vehicle' %}">
+                    <div>
+                        
+                    </div>
+                    </a>
+                    <a href="{% url 'add_vehicle' %}">
+                    <div>
+                        
+                    </div>
+                    </a>
+                    </div>
+                    <div class="bottom-slots">
+                    <a href="{% url 'add_vehicle' %}">    
+                    <div>
+                        
+                    </div>
+                    </a>
+                    <a href="{% url 'add_vehicle' %}">
+                    <div>
+                        
+                    </div>
+                    </a>
+                    </div>
+            </div>
+        </div>
+
+    </div>
+    
+    
 
 {% endblock %}
