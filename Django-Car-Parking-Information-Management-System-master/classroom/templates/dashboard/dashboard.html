@@ -3,6 +3,128 @@
 <link rel="stylesheet" type="css" href="static/css/slot.css">
 
 {% block body %}
+<script>
+    const channelId = '2209833';
+    const apiKey = 'B5RA695DHMOL7QMO';
+    const numEntries = 1; // Number of entries to retrieve (only the last entry)
+
+    const url = https://api.thingspeak.com/channels/${channelId}/feeds.json?api_key=${apiKey}&results=${numEntries};
+
+    fetch(url)
+      .then(response => response.json())
+      .then(data => {
+        // Process the fetched data
+        const tableBody = document.querySelector('#data-table tbody');
+        const statusIndicator1 = document.querySelector('slot1');
+        const statusIndicator2 = document.querySelector('slot2');
+        const statusIndicator3 = document.querySelector('slot3');
+        const statusIndicator3 = document.querySelector('slot4');
+
+
+        data.feeds.forEach(feed => {
+          const row = document.createElement('div');
+          row.innerHTML = `
+            <td>${feed.field1}</td>
+            <td>${feed.field2}</td>
+            <td>${feed.field3}</td>
+            <td>${feed.field4}</td>
+
+
+            <!-- Add more cells for additional fields if needed -->
+          `;
+          tableBody.appendChild(row);
+
+          // Check field1 value for status indicator color
+          if (feed.field1 === '1') {
+            statusIndicator1.classList.add('inactive');
+          } else if (feed.field1 === '0') {
+            statusIndicator1.classList.add('active');
+          }
+
+          if (feed.field2 === '1') {
+            statusIndicator2.classList.add('inactive');
+          } else if (feed.field2 === '0') {
+            statusIndicator3.classList.add('active');
+          }
+
+          if (feed.field3 === '1') {
+            statusIndicator3.classList.add('inactive');
+          } else if (feed.field3 === '0') {
+            statusIndicator3.classList.add('active');
+          }
+          if (feed.field4 === '1') {
+            statusIndicator4.classList.add('inactive');
+          } else if (feed.field4 === '0') {
+            statusIndicator3.classList.add('active');
+          }
+        });
+      })
+      .catch(error => {
+        // Handle any errors
+        console.log('Error:', error);
+      });
+  </script>
+  <script>
+    const channelId = '2209833';
+    const apiKey = 'B5RA695DHMOL7QMO';
+    const numEntries = 1; // Number of entries to retrieve (only the last entry)
+
+    const url = https://api.thingspeak.com/channels/${channelId}/feeds.json?api_key=${apiKey}&results=${numEntries};
+
+    fetch(url)
+      .then(response => response.json())
+      .then(data => {
+        // Process the fetched data
+        const tableBody = document.querySelector('#data-table tbody');
+        const statusIndicator1 = document.querySelector('slot5');
+        const statusIndicator2 = document.querySelector('slot6');
+        const statusIndicator3 = document.querySelector('slot7');
+        const statusIndicator3 = document.querySelector('slot8');
+
+
+        data.feeds.forEach(feed => {
+          const row = document.createElement('div');
+          row.innerHTML = `
+            <td>${feed.field1}</td>
+            <td>${feed.field2}</td>
+            <td>${feed.field3}</td>
+            <td>${feed.field4}</td>
+
+
+            <!-- Add more cells for additional fields if needed -->
+          `;
+          tableBody.appendChild(row);
+
+          // Check field1 value for status indicator color
+          if (feed.field1 === '1') {
+            statusIndicator1.classList.add('inactive');
+          } else if (feed.field1 === '0') {
+            statusIndicator1.classList.add('active');
+          }
+
+          if (feed.field2 === '1') {
+            statusIndicator2.classList.add('inactive');
+          } else if (feed.field2 === '0') {
+            statusIndicator3.classList.add('active');
+          }
+
+          if (feed.field3 === '1') {
+            statusIndicator3.classList.add('inactive');
+          } else if (feed.field3 === '0') {
+            statusIndicator3.classList.add('active');
+          }
+          if (feed.field4 === '1') {
+            statusIndicator4.classList.add('inactive');
+          } else if (feed.field4 === '0') {
+            statusIndicator3.classList.add('active');
+          }
+        });
+      })
+      .catch(error => {
+        // Handle any errors
+        console.log('Error:', error);
+      });
+  </script>
  <div id="content-wrapper">
 
         <div class="container-fluid">
@@ -80,12 +202,12 @@
                 <span>Durbarmarg</span>
                 <div class="top-slots">
                 <a href="{% url 'add_vehicle' %}">
-                    <div>
+                    <div class='slot1'>
                     
                     </div>
                 </a>
                 <a href="{% url 'add_vehicle' %}">    
-                    <div>
+                    <div class='slot2'>
                         
                     </div>
                 </a>    
@@ -93,12 +215,12 @@
                 <div class="bottom-slots">
                  
                 <a href="{% url 'add_vehicle' %}">    
-                <div>
+                <div class='slot3'>
                     
                 </div>
                 </a>
                 <a href="{% url 'add_vehicle' %}">
-                <div>
+                <div class='slot4'>
                     
                 </div>
                 </a>
@@ -109,24 +231,24 @@
                 <span>Thamel</span>
                 <div class="top-slots">
                     <a href="{% url 'add_vehicle' %}">
-                    <div>
+                    <div class='slot5'>
                         
                     </div>
                     </a>
                     <a href="{% url 'add_vehicle' %}">
-                    <div>
+                    <div class='slot6'>
                         
                     </div>
                     </a>
                     </div>
                     <div class="bottom-slots">
                     <a href="{% url 'add_vehicle' %}">    
-                    <div>
+                    <div class='slot7'>
                         
                     </div>
                     </a>
                     <a href="{% url 'add_vehicle' %}">
-                    <div>
+                    <div class='slot8'>
                         
                     </div>
                     </a>

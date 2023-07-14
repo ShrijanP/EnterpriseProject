@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Fetch ThingSpeak Data</title>
+  <style>
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+    
+    th, td {
+      border: 1px solid black;
+      padding: 8px;
+      text-align: left;
+    }
+
+    .status {
+      width: 100px;
+      height: 100px;
+      background-color: green;
+    }
+
+    .status.active {
+      background-color: green;
+    }
+
+    .status.inactive {
+      background-color: red;
+    }
+  </style>
+</head>
+<body>
+  <h1>ThingSpeak Data</h1>
+  <table id="data-table" hidden>
+    <thead>
+      <tr>
+        <th>Field 1</th>
+        <th>Field 2</th>
+        <th>Field 3</th>
+        <!-- Add more headers for additional fields if needed -->
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <h2>Status1</h2>
+  <div id="status-indicator1" class="status"></div>
+  <h2>Status2</h2>
+  <div id="status-indicator2" class="status"></div>
+  <h2>Status3</h2>
+  <div id="status-indicator3" class="status"></div>
+
+  <script>
+    const channelId = '2209833';
+    const apiKey = 'B5RA695DHMOL7QMO';
+    const numEntries = 1; // Number of entries to retrieve (only the last entry)
+
+    const url = https://api.thingspeak.com/channels/${channelId}/feeds.json?api_key=${apiKey}&results=${numEntries};
+
+    fetch(url)
+      .then(response => response.json())
+      .then(data => {
+        // Process the fetched data
+        const tableBody = document.querySelector('#data-table tbody');
+        const statusIndicator1 = document.getElementById('status-indicator1');
+        const statusIndicator2 = document.getElementById('status-indicator2');
+        const statusIndicator3 = document.getElementById('status-indicator3');
+
+        data.feeds.forEach(feed => {
+          const row = document.createElement('tr');
+          row.innerHTML = `
+            <td>${feed.field1}</td>
+            <td>${feed.field2}</td>
+            <td>${feed.field3}</td>
+
+            <!-- Add more cells for additional fields if needed -->
+          `;
+          tableBody.appendChild(row);
+
+          // Check field1 value for status indicator color
+          if (feed.field1 === '1') {
+            statusIndicator1.classList.add('inactive');
+          } else if (feed.field1 === '0') {
+            statusIndicator1.classList.add('active');
+          }
+
+          if (feed.field2 === '1') {
+            statusIndicator2.classList.add('inactive');
+          } else if (feed.field2 === '0') {
+            statusIndicator3.classList.add('active');
+          }
+
+          if (feed.field3 === '1') {
+            statusIndicator3.classList.add('inactive');
+          } else if (feed.field3 === '0') {
+            statusIndicator3.classList.add('active');
+          }
+        });
+      })
+      .catch(error => {
+        // Handle any errors
+        console.log('Error:', error);
+      });
+  </script>
+</body>
+</html>
