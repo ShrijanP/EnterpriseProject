@@ -10917,3 +10917,98 @@ body.sidebar-toggled footer.sticky-footer {
     border-color: #ebcccc;
     color: #a94442;
 }
+
+.parking-slot{
+  display: flex;
+  justify-content: space-around;
+}
+
+.durbarmarg span{
+  font-size: larger;
+  margin-left: 20%;
+  margin-top: 10%;
+  margin-bottom: 70%;
+}
+.durbarmarg .top-slots{
+  display: flex;
+  /* margin-left: 12%; */
+  /* background-color: black; */
+  justify-content:left;
+  margin-bottom: 5%;
+  
+}
+
+.durbarmarg .top-slots a div{
+  padding: 107px;
+  background-color: rgba(17, 23, 17, 1);
+}
+
+.durbarmarg .top-slots a:nth-child(1) {
+  /* border-right: 1px solid black; */
+  margin-right: 5%;
+}
+
+.durbarmarg .bottom-slots a:nth-child(1) {
+  /* border-right: 1px solid black; */
+  margin-right: 5%;
+}
+
+
+
+
+.durbarmarg .bottom-slots{
+  display: flex;
+  /* margin-left: 12%; */
+  /* background-color: black; */
+  justify-content:left;
+  
+}
+
+.durbarmarg .bottom-slots a div{
+  padding: 107px;
+  background-color: rgba(17, 23, 17, 1);
+}
+
+
+
+.thamel span{
+  font-size: larger;
+  margin-left: 20%;
+  margin-top: 10%;
+  margin-bottom: 70%;
+}
+.thamel .top-slots{
+  display: flex;
+  /* margin-left: 12%; */
+  /* background-color: black; */
+  justify-content:left;
+  margin-bottom: 5%;
+  
+}
+.thamel .top-slots a:nth-child(1) {
+  /* border-right: 1px solid black; */
+  margin-right: 5%;
+}
+
+.thamel .bottom-slots a:nth-child(1) {
+  /* border-right: 1px solid black; */
+  margin-right: 5%;
+}
+.thamel .top-slots a div{
+  padding: 107px;
+  background-color: rgba(17, 23, 17, 1);
+}
+
+
+.thamel .bottom-slots{
+  display: flex;
+  /* margin-left: 12%; */
+  /* background-color: black; */
+  justify-content:left;
+  
+}
+
+.thamel .bottom-slots a div{
+  padding: 107px;
+  background-color: rgba(17, 23, 17, 1);
+}
