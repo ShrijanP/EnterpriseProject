@@ -10950,3 +10950,15 @@ body.sidebar-toggled footer.sticky-footer {
   /* width: 200px; */
   height: 95%;
 }
+@media (max-width: 560px) {
+  .parking-slot{
+    border: 3px solid green;
+    width: 95%;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .individual-parking-slot{
+    margin-bottom: 2%;
+    width: 100%;
+  }
+}
