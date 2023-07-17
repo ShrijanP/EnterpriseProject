@@ -10940,7 +10940,8 @@ body.sidebar-toggled footer.sticky-footer {
 
 .durbarmarg .top-slots a div{
   padding: 107px;
-  background-color: rgba(17, 23, 17, 1);
+  /* background-color: rgba(17, 23, 17, 1); */
+  background-color: green;
 }
 
 .durbarmarg .top-slots a:nth-child(1) {
@@ -10966,7 +10967,8 @@ body.sidebar-toggled footer.sticky-footer {
 
 .durbarmarg .bottom-slots a div{
   padding: 107px;
-  background-color: rgba(17, 23, 17, 1);
+  /* background-color: rgba(17, 23, 17, 1); */
+  background-color: green;
 }
 
 
@@ -10996,7 +10998,8 @@ body.sidebar-toggled footer.sticky-footer {
 }
 .thamel .top-slots a div{
   padding: 107px;
-  background-color: rgba(17, 23, 17, 1);
+  /* background-color: rgba(17, 23, 17, 1); */
+  background-color: green;
 }
 
 
@@ -11010,5 +11013,6 @@ body.sidebar-toggled footer.sticky-footer {
 
 .thamel .bottom-slots a div{
   padding: 107px;
-  background-color: rgba(17, 23, 17, 1);
+  /* background-color: rgba(17, 23, 17, 1); */
+  background-color: green;
 }

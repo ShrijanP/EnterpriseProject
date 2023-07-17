@@ -3,261 +3,248 @@
 <link rel="stylesheet" type="css" href="static/css/slot.css">
 
 {% block body %}
- <script>
-    const channelId = '2209833';
-    const apiKey = 'B5RA695DHMOL7QMO';
-    const numEntries = 1; // Number of entries to retrieve (only the last entry)
 
-    const url = https://api.thingspeak.com/channels/${channelId}/feeds.json?api_key=${apiKey}&results=${numEntries};
+<style>
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  
+  th, td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: left;
+  }
 
-    fetch(url)
-      .then(response => response.json())
-      .then(data => {
-        // Process the fetched data
-        const tableBody = document.querySelector('#data-table tbody');
-        const statusIndicator1 = document.querySelector('slot1');
-        const statusIndicator2 = document.querySelector('slot2');
-        const statusIndicator3 = document.querySelector('slot3');
-        const statusIndicator3 = document.querySelector('slot4');
+  .slot1.active, .slot2.active, .slot3.active, .slot4.active {
+    background-color: green;
+  }
 
-
-        data.feeds.forEach(feed => {
-          const row = document.createElement('div');
-          row.innerHTML = `
-            <td>${feed.field1}</td>
-            <td>${feed.field2}</td>
-            <td>${feed.field3}</td>
-            <td>${feed.field4}</td>
+  .slot1.inactive, .slot2.inactive, .slot3.inactive, .slot4.inactive {
+    background-color: red;
+  }
+</style>
 
 
-            <!-- Add more cells for additional fields if needed -->
-          `;
-          tableBody.appendChild(row);
+<div id="content-wrapper">
+  {% comment %} for dashboard overview {% endcomment %}
+  <div class="container-fluid">
 
-          // Check field1 value for status indicator color
-          if (feed.field1 === '1') {
-            statusIndicator1.classList.add('inactive');
-          } else if (feed.field1 === '0') {
-            statusIndicator1.classList.add('active');
-          }
+    <!-- Breadcrumbs-->
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <a href="">Dashboard</a>
+        </li>
+        <li class="breadcrumb-item active">Overview</li>
+    </ol>
 
-          if (feed.field2 === '1') {
-            statusIndicator2.classList.add('inactive');
-          } else if (feed.field2 === '0') {
-            statusIndicator3.classList.add('active');
-          }
-
-          if (feed.field3 === '1') {
-            statusIndicator3.classList.add('inactive');
-          } else if (feed.field3 === '0') {
-            statusIndicator3.classList.add('active');
-          }
-          if (feed.field4 === '1') {
-            statusIndicator4.classList.add('inactive');
-          } else if (feed.field4 === '0') {
-            statusIndicator3.classList.add('active');
-          }
-        });
-      })
-      .catch(error => {
-        // Handle any errors
-        console.log('Error:', error);
-      });
-  </script>
-  <script>
-    const channelId = '2209833';
-    const apiKey = 'B5RA695DHMOL7QMO';
-    const numEntries = 1; // Number of entries to retrieve (only the last entry)
-
-    const url = https://api.thingspeak.com/channels/${channelId}/feeds.json?api_key=${apiKey}&results=${numEntries};
-
-    fetch(url)
-      .then(response => response.json())
-      .then(data => {
-        // Process the fetched data
-        const tableBody = document.querySelector('#data-table tbody');
-        const statusIndicator1 = document.querySelector('slot5');
-        const statusIndicator2 = document.querySelector('slot6');
-        const statusIndicator3 = document.querySelector('slot7');
-        const statusIndicator3 = document.querySelector('slot8');
+    <!-- Icon Cards-->
+    <div class="row">
 
 
-        data.feeds.forEach(feed => {
-          const row = document.createElement('div');
-          row.innerHTML = `
-            <td>${feed.field1}</td>
-            <td>${feed.field2}</td>
-            <td>${feed.field3}</td>
-            <td>${feed.field4}</td>
-
-
-            <!-- Add more cells for additional fields if needed -->
-          `;
-          tableBody.appendChild(row);
-
-          // Check field1 value for status indicator color
-          if (feed.field1 === '1') {
-            statusIndicator1.classList.add('inactive');
-          } else if (feed.field1 === '0') {
-            statusIndicator1.classList.add('active');
-          }
-
-          if (feed.field2 === '1') {
-            statusIndicator2.classList.add('inactive');
-          } else if (feed.field2 === '0') {
-            statusIndicator3.classList.add('active');
-          }
-
-          if (feed.field3 === '1') {
-            statusIndicator3.classList.add('inactive');
-          } else if (feed.field3 === '0') {
-            statusIndicator3.classList.add('active');
-          }
-          if (feed.field4 === '1') {
-            statusIndicator4.classList.add('inactive');
-          } else if (feed.field4 === '0') {
-            statusIndicator3.classList.add('active');
-          }
-        });
-      })
-      .catch(error => {
-        // Handle any errors
-        console.log('Error:', error);
-      });
-  </script>
- <div id="content-wrapper">
-
-        <div class="container-fluid">
-
-            <!-- Breadcrumbs-->
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item">
-                    <a href="">Dashboard</a>
-                </li>
-                <li class="breadcrumb-item active">Overview</li>
-            </ol>
-
-            <!-- Icon Cards-->
-            <div class="row">
-
-
-                                <div class="col-xl-3 col-sm-6 mb-3">
-                    <div class="card text-white bg-success o-hidden h-100">
-                        <div class="card-body">
-                            <div class="card-body-icon">
-                                <i class="fas fa-fw fa-money"></i>
-                            </div>
-                            <div class="mr-5">NRP {{ total_cost }}</div>
-                        </div>
-                        <a class="card-footer text-white clearfix small z-1" href="#">
-                            <span class="float-left">Total amount</span><br>
-                            <span class="float-left">More Info</span>
-                            <span class="float-right">
-                  <i class="fas fa-angle-right"></i>
-                </span>
-                        </a>
+                        <div class="col-xl-3 col-sm-6 mb-3">
+            <div class="card text-white bg-success o-hidden h-100">
+                <div class="card-body">
+                    <div class="card-body-icon">
+                        <i class="fas fa-fw fa-money"></i>
                     </div>
+                    <div class="mr-5">NRP {{ total_cost }}</div>
                 </div>
-                <div class="col-xl-3 col-sm-6 mb-3">
-                    <div class="card text-white bg-warning o-hidden h-100">
-                        <div class="card-body">
-                            <div class="card-body-icon">
-                                <i class="fas fa-fw fa-car"></i>
-                            </div>
-                            <div class="mr-5">{{ cars }}</div>
-                        </div>
-                        <a class="card-footer text-white clearfix small z-1" href="">
-                            <span class="float-left">Total Vehicles</span><br>
-                            <span class="float-left">More Info</span>
-                            <span class="float-right">
-                  <i class="fas fa-angle-right"></i>
-                </span>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="col-xl-3 col-sm-6 mb-3">
-                    <div class="card text-white bg-danger o-hidden h-100">
-                        <div class="card-body">
-                            <div class="card-body-icon">
-                                <i class="fas fa-fw fa-user"></i>
-                            </div>
-                            <div class="mr-5">{{ users }}</div>
-                        </div>
-                        <a class="card-footer text-white clearfix small z-1" href="">
-                            <span class="float-left">Total Users</span><br>
-                            <span class="float-left">More Info</span>
-                            <span class="float-right">
-                  <i class="fas fa-angle-right"></i>
-                        </span>
-                        </a>
-                </div>
-                    
-                </div>
-                
+                <a class="card-footer text-white clearfix small z-1" href="#">
+                    <span class="float-left">Total amount</span><br>
+                    <span class="float-left">More Info</span>
+                    <span class="float-right">
+          <i class="fas fa-angle-right"></i>
+        </span>
+                </a>
             </div>
         </div>
-        <div class="parking-slot">
-            <div class="durbarmarg">
-                <span>Durbarmarg</span>
-                <div class="top-slots">
-                <a href="{% url 'add_vehicle' %}">
-                    <div class='slot1'>
-                    
+        <div class="col-xl-3 col-sm-6 mb-3">
+            <div class="card text-white bg-warning o-hidden h-100">
+                <div class="card-body">
+                    <div class="card-body-icon">
+                        <i class="fas fa-fw fa-car"></i>
                     </div>
+                    <div class="mr-5">{{ cars }}</div>
+                </div>
+                <a class="card-footer text-white clearfix small z-1" href="">
+                    <span class="float-left">Total Vehicles</span><br>
+                    <span class="float-left">More Info</span>
+                    <span class="float-right">
+          <i class="fas fa-angle-right"></i>
+        </span>
                 </a>
-                <a href="{% url 'add_vehicle' %}">    
-                    <div class='slot2'>
-                        
-                    </div>
-                </a>    
-                </div>
-                <div class="bottom-slots">
-                 
-                <a href="{% url 'add_vehicle' %}">    
-                <div class='slot3'>
-                    
-                </div>
-                </a>
-                <a href="{% url 'add_vehicle' %}">
-                <div class='slot4'>
-                    
-                </div>
-                </a>
-                </div>
-            </div>
-    
-            <div class="thamel">
-                <span>Thamel</span>
-                <div class="top-slots">
-                    <a href="{% url 'add_vehicle' %}">
-                    <div class='slot5'>
-                        
-                    </div>
-                    </a>
-                    <a href="{% url 'add_vehicle' %}">
-                    <div class='slot6'>
-                        
-                    </div>
-                    </a>
-                    </div>
-                    <div class="bottom-slots">
-                    <a href="{% url 'add_vehicle' %}">    
-                    <div class='slot7'>
-                        
-                    </div>
-                    </a>
-                    <a href="{% url 'add_vehicle' %}">
-                    <div class='slot8'>
-                        
-                    </div>
-                    </a>
-                    </div>
             </div>
         </div>
+
+        <div class="col-xl-3 col-sm-6 mb-3">
+            <div class="card text-white bg-danger o-hidden h-100">
+                <div class="card-body">
+                    <div class="card-body-icon">
+                        <i class="fas fa-fw fa-user"></i>
+                    </div>
+                    <div class="mr-5">{{ users }}</div>
+                </div>
+                <a class="card-footer text-white clearfix small z-1" href="">
+                    <span class="float-left">Total Users</span><br>
+                    <span class="float-left">More Info</span>
+                    <span class="float-right">
+          <i class="fas fa-angle-right"></i>
+                </span>
+                </a>
+        </div>
+            
+        </div>
+        
+    </div>
+  </div>
+
+
+
+  {% comment %} for parking slots {% endcomment %}
+  <table id="data-table" >
+    <thead>
+      <tr>
+        <th>Field 1</th>
+        <th>Field 2</th>
+        <th>Field 3</th>
+        <th>Field 4 </th>
+        <!-- Add more headers for additional fields if needed -->
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <div class="parking-slot">
+    <div class="durbarmarg">
+      <span>Durbarmarg</span>
+
+      <div class="top-slots">
+        <a href="{% url 'add_vehicle' %}">
+            <div id='status-indicator1' class='slot1'>         
+            </div>
+        </a>
+
+        <a href="{% url 'add_vehicle' %}">    
+            <div id='status-indicator2' class='slot2'>             
+            </div>
+        </a>  
+
+      </div>
+
+      <div class="bottom-slots">   
+        <a href="{% url 'add_vehicle' %}">    
+          <div id='status-indicator3' class='slot3'>   
+          </div>
+        </a>
+
+        <a href="{% url 'add_vehicle' %}">
+          <div id='status-indicator4' class='slot4'>             
+          </div>
+        </a>
+      </div>
 
     </div>
-    
-    
+{% comment %} end of durbarmarg marga content {% endcomment %}
+
+
+    <div class="thamel">
+      <span>Thamel</span>
+      <div class="top-slots">
+        <a href="{% url 'add_vehicle' %}">
+          <div id='status-indicator5' class='slot5'>  
+          </div>
+        </a>
+
+        <a href="{% url 'add_vehicle' %}">
+          <div id='status-indicator6' class='slot6'> 
+          </div>
+        </a>
+      </div>
+
+      <div class="bottom-slots">
+        <a href="{% url 'add_vehicle' %}">    
+          <div id='status-indicator7' class='slot7'>            
+          </div>
+        </a>
+
+        <a href="{% url 'add_vehicle' %}">
+          <div id='status-indicator8' class='slot8'>           
+          </div>
+        </a>
+
+      </div>
+
+    </div>
+    {% comment %} end of thamel content {% endcomment %}
+
+  </div>
+</div>
+
+
 
 {% endblock %}
+
+
+<script>
+   channelId = '2212646'; 
+   apiKey = 'QEYOG67B9XSL24R1';
+   numEntries = 1; // Number of entries to retrieve (only the last entry)
+   url = `https://api.thingspeak.com/channels/${channelId}/feeds.json?api_key=${apiKey}&results=${numEntries}`;
+
+fetch(url)
+  .then(response => response.json())
+  .then(data => {
+    // Process the fetched data
+    const tableBody = document.querySelector('#data-table tbody');
+    const statusIndicator1 = document.getElementById('status-indicator1');
+    const statusIndicator2 = document.getElementById('status-indicator2');
+    const statusIndicator3 = document.getElementById('status-indicator3');
+    const statusIndicator4 = document.getElementById('status-indicator4');
+    const statusIndicator5 = document.getElementById('status-indicator5');
+    const statusIndicator6 = document.getElementById('status-indicator6');        
+    const statusIndicator7 = document.getElementById('status-indicator7');
+    const statusIndicator8 = document.getElementById('status-indicator8');
+
+    data.feeds.forEach(feed => {
+      const row = document.createElement('div');
+      row.innerHTML = `
+        <td>${feed.field1}</td>
+        <td>${feed.field2}</td>
+        <td>${feed.field3}</td>
+        <td>${feed.field4}</td>
+        <!-- Add more cells for additional fields if needed -->
+      `;
+      tableBody.appendChild(row);
+
+      // Check field1 value for status indicator color
+      if (feed.field1 === '1') {
+        statusIndicator1.classList.add('inactive');
+      } else if (feed.field1 === '0') {
+        statusIndicator1.classList.add('active');
+      }
+
+      if (feed.field2 === '1') {
+        statusIndicator2.classList.add('inactive');
+      } else if (feed.field2 === '0') {
+        statusIndicator3.classList.add('active');
+      }
+
+      if (feed.field3 === '1') {
+        statusIndicator3.classList.add('inactive');
+      } else if (feed.field3 === '0') {
+        statusIndicator3.classList.add('active');
+      }
+      if (feed.field4 === '1') {
+        statusIndicator4.classList.add('inactive');
+      } else if (feed.field4 === '0') {
+        statusIndicator3.classList.add('active');
+      }
+    });
+  })
+  .catch(error => {
+    // Handle any errors
+    console.log('Error:', error);
+  });
+</script>
